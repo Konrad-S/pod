@@ -3,6 +3,8 @@
 <body>
 
 <h1>Listen to the dialogue of Path of Exile, in the order they would appear in game</h1>
+<h2 id="title">Default</h2>
+
 
 <audio id="myAudio" controls autoplay muted>
   <source src="https://oriath.net/Audio/Dialogue/Character/Str/Gameplay/Ma_33d.ogg" type="audio/ogg">
@@ -13,10 +15,106 @@
 </html>
 
 <script>
+  const website = "https://oriath.net";
   var audio = document.getElementById("myAudio");
-  var srcList = ["https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_04.ogg",
-                 "https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_08.ogg",
-                 "https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_10.ogg"];
+  var title = document.getElementById("title");
+  var srcList = [
+    //Nessa
+    //["NessaIntro1", "/Audio/Dialogue/NPC/Nessa/Ne01c.ogg"],
+    ["NessaIntro2", "/Audio/Dialogue/NPC/Nessa/Ne01d.ogg"],
+    //["NessaIntro3", "/Audio/Dialogue/NPC/Nessa/Ne01e.ogg"],
+    //["NessaIntro4", "/Audio/Dialogue/NPC/Nessa/Ne01f.ogg"],
+    //["NessaIntro5", "/Audio/Dialogue/NPC/Nessa/Ne01g.ogg"],
+    //["NessaIntro6", "/Audio/Dialogue/NPC/Nessa/Ne01h.ogg"],
+    //["NessaIntro7", "/Audio/Dialogue/NPC/Nessa/Ne01.ogg"],
+    ["NessaMedicineThanks", "/Audio/Dialogue/NPC/Nessa/Ne08.ogg"],
+    ["NessaOnTarkleigh", "/Audio/Dialogue/NPC/Nessa/Ne02.ogg"],
+    ["NessaMedicineQuest", "/Audio/Dialogue/NPC/Nessa/Ne07.ogg"],
+    ["NessaOnTown", "/Audio/Dialogue/NPC/Nessa/Ne07Edit.ogg"],
+    ["NessaOnPiety", "/Audio/Dialogue/NPC/Nessa/Ne12.ogg"],
+    ["NessaOnRhoas", "/Audio/Dialogue/NPC/Nessa/Ne06.ogg"],
+    ["NessaOnBestel", "/Audio/Dialogue/NPC/Nessa/Ne03.ogg"],
+    ["NessaOnBrutus", "/Audio/Dialogue/NPC/Nessa/Ne11.ogg"],
+    ["NessaOnBrutusDead", "/Audio/Dialogue/NPC/Nessa/Ne13.ogg"],
+    ["NessaOnOpenedRoad", "/Audio/Dialogue/NPC/Nessa/Ne14.ogg"],
+    ["NessaOnMerveil", "/Audio/Dialogue/NPC/Nessa/Ne16.ogg"],
+    ["NessaMerveilDead", "/Audio/Dialogue/NPC/Nessa/Ne18.ogg"],
+    ["NessaMerveilReward", "/Audio/Dialogue/NPC/Nessa/Ne17.ogg"],
+    //Bestel
+//["BestelIntoduction1", "/Audio/Dialogue/NPC/Bestel/B06.ogg"],
+["BestelIntoduction2", "/Audio/Dialogue/NPC/Bestel/B02.ogg"],
+//["BestelIntoduction3", "/Audio/Dialogue/NPC/Bestel/B05.ogg"],
+//["BestelIntoduction4", "/Audio/Dialogue/NPC/Bestel/B03.ogg"],
+//["BestelIntoduction5", "/Audio/Dialogue/NPC/Bestel/B04.ogg"],
+//["BestelIntoduction6", "/Audio/Dialogue/NPC/Bestel/B07.ogg"],
+//["BestelIntoduction7", "/Audio/Dialogue/NPC/Bestel/B01.ogg"],
+["BestelMerveilDead", "/Audio/Dialogue/NPC/Bestel/B28.ogg"],
+["BestelOnSirenCove", "/Audio/Dialogue/NPC/Bestel/B27.ogg"],
+["BestelOnTown", "/Audio/Dialogue/NPC/Bestel/B22.ogg"],
+["BestelOnNessa", "/Audio/Dialogue/NPC/Bestel/B10.ogg"],
+["BestelIslandClue", "/Audio/Dialogue/NPC/Bestel/B15.ogg"],
+["BestelOnTarkleigh", "/Audio/Dialogue/NPC/Bestel/B09.ogg"],
+["BestelOnZombies", "/Audio/Dialogue/NPC/Bestel/B12.ogg"],
+["BestelOnBrutus", "/Audio/Dialogue/NPC/Bestel/B21.ogg"],
+["BestelOnRhaos", "/Audio/Dialogue/NPC/Bestel/B14.ogg"],
+["BestelFairgravesReward", "/Audio/Dialogue/NPC/Bestel/B26.ogg"],
+["BestelOnFairgraves", "/Audio/Dialogue/NPC/Bestel/B25.ogg"],
+["BestelOnBlockedRoad", "/Audio/Dialogue/NPC/Bestel/B19.ogg"],
+["BestelOnOpenedRoad", "/Audio/Dialogue/NPC/Bestel/B24_Start.ogg"],
+["BestelRoadReward", "/Audio/Dialogue/NPC/Bestel/B24_End.ogg"],
+["BestelMedicineReward", "/Audio/Dialogue/NPC/Bestel/B16.ogg"],
+["BestelOnRoad", "/Audio/Dialogue/NPC/Bestel/B18.ogg"],
+//Cpt Fairgraves
+["FairgravesIntroduction", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_01.ogg"],
+["FairgravesAllflameQuest", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_02.ogg"],
+["FairgravesOnAllflame", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_03.ogg"],
+["FairgravesOnReal", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_04.ogg"],
+["FairgravesOnMerveil", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_05.ogg"],
+["FairgravesOnNecklace", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_06.ogg"],
+["FairgravesAllflameGiven", "/Audio/Dialogue/NPC/Fairgraves/Fairgraves_07.ogg"],
+//Tarkleigh
+["TarkleighHillockReward", "/Audio/Dialogue/NPC/Tarkleigh/T01_Reward.ogg"],
+["TarkleighIntroduction", "/Audio/Dialogue/NPC/Tarkleigh/T01_NoReward.ogg"],
+["TarkleighBrutusQuest", "/Audio/Dialogue/NPC/Tarkleigh/T18.ogg"],
+["TarkleighBrutusDead", "/Audio/Dialogue/NPC/Tarkleigh/T20.ogg"],
+["TarkleighOnTown", "/Audio/Dialogue/NPC/Tarkleigh/T12.ogg"],
+["TarkleighOnZombies", "/Audio/Dialogue/NPC/Tarkleigh/T06.ogg"],
+["TarkleighOnMerveil", "/Audio/Dialogue/NPC/Tarkleigh/T25.ogg"],
+["TarkleighMerveilDead", "/Audio/Dialogue/NPC/Tarkleigh/T26.ogg"],
+["TarkleighOnRhoas", "/Audio/Dialogue/NPC/Tarkleigh/T10.ogg"],
+["TarkleighOnCannibals", "/Audio/Dialogue/NPC/Tarkleigh/T11.ogg"],
+["TarkleighOnBestel", "/Audio/Dialogue/NPC/Tarkleigh/T04.ogg"],
+["TarkleighOnNessa", "/Audio/Dialogue/NPC/Tarkleigh/T03.ogg"],
+["TarkleighOnTunnel", "/Audio/Dialogue/NPC/Tarkleigh/T14.ogg"],
+["TarkleighOnGlyphs", "/Audio/Dialogue/NPC/Tarkleigh/T15.ogg"],
+["TarkleighDeepDweller", "/Audio/Dialogue/NPC/Tarkleigh/T16.ogg"],
+["TarkleighDeadDweller", "/Audio/Dialogue/NPC/Tarkleigh/T17.ogg"],
+["TarkleighFetidPoolQuest", "/Audio/Dialogue/NPC/Tarkleigh/T30.ogg"],
+["TarkleighFetidPoolQuestVisited", "/Audio/Dialogue/NPC/Tarkleigh/T31.ogg"],
+["TarkleighNecromancer", "/Audio/Dialogue/NPC/Tarkleigh/T13.ogg"],
+["TarkleighOnCutOff", "/Audio/Dialogue/NPC/Tarkleigh/T22.ogg"],
+["TarkleighOnRoad", "/Audio/Dialogue/NPC/Tarkleigh/T21.ogg"],
+["TarkleighOnOpenedRoad", "/Audio/Dialogue/NPC/Tarkleigh/T23.ogg"],
+["TarkleighOnGoatmen", "/Audio/Dialogue/NPC/Tarkleigh/T27.ogg"],
+["TarkleighOnLettersOfExile", "/Audio/Dialogue/NPC/Tarkleigh/T05.ogg"],
+["TarkleighOnMedicineChest", "/Audio/Dialogue/NPC/Tarkleigh/T29.ogg"],
+//Misc
+["MerveilGlyph2", "/Audio/Dialogue/NPC/MerveilGlyph/Glyph_01.ogg"],
+["MalachaiGlyphAxiom", "/Audio/Dialogue/NPC/MalachaiGlyph/M01_Glyph_Axiom.ogg"],
+["DominusPrisonOrders", "/Audio/Dialogue/NPC/DominusGlyph/Dom_SG_OrdersFromDominus.ogg"],
+["Audio", "/Audio/Dialogue/NPC/DominusGlyph/Dom_Intro_01.ogg"],
+["MerveilGlyph1", "/Audio/Dialogue/NPC/MerveilGlyph/Glyph_02.ogg"],
+["ShavronneDiary", "/Audio/Dialogue/NPC/ShavronneGlyph/S-00.ogg"],
+//Weathered carving
+["KaruiStone1", "/Audio/Dialogue/Glyph/Glyph01.ogg"],
+["KaruiStone2", "/Audio/Dialogue/Glyph/Glyph02.ogg"],
+["KaruiStone3", "/Audio/Dialogue/Glyph/Glyph03.ogg"],
+["KaruiStone4", "/Audio/Dialogue/Glyph/Glyph04.ogg"],
+["KaruiStone5", "/Audio/Dialogue/Glyph/Glyph05.ogg"],
+["KaruiStone6", "/Audio/Dialogue/Glyph/Glyph06.ogg"],
+["KaruiStone7", "/Audio/Dialogue/Glyph/Glyph07.ogg"],
+["Audio", "/Audio/Dialogue/Glyph/Glyph01b.ogg"],
+];
 
 var count = 0;
 
@@ -25,7 +123,8 @@ var count = 0;
     console.log("Audio has finished playing");
     if (count < srcList.length)
     {
-        audio.src = srcList[count];
+        audio.src = website + srcList[count][1];
+        title.innerText = srcList[count][0];
         audio.play();
     }
     count++;
