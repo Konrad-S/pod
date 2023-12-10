@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Listen to the dialogue of Path of Exile, in the order they would appear in game</h1>
+
+<audio id="myAudio" controls autoplay muted>
+  <source src="https://oriath.net/Audio/Dialogue/Character/Str/Gameplay/Ma_33d.ogg" type="audio/ogg">
+  Your browser does not support the video tag.
+</audio>
+
+</body>
+</html>
+
+<script>
+  var audio = document.getElementById("myAudio");
+  var srcList = ["https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_04.ogg",
+                 "https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_08.ogg",
+                 "https://oriath.net/Audio/Dialogue/Character/Str/Event/Ma_10.ogg"];
+
+var count = 0;
+
+  audio.addEventListener("ended", function() {
+    // Code to execute when the audio has finished playing
+    console.log("Audio has finished playing");
+    if (count < srcList.length)
+    {
+        audio.src = srcList[count];
+        audio.play();
+    }
+    count++;
+  });
+</script>
