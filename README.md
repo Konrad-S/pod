@@ -5,3 +5,4 @@ WIP
 
 regex
 ("\/Audio\/Dialogue\/[^"]*")>(\w+)
+["$2", $1],\n
